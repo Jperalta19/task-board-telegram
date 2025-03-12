@@ -4,7 +4,7 @@ import { Suspense, useEffect, useState } from 'react';
 import Image from "next/image";
 import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
-import { LaunchParams } from "@telegram-apps/sdk-react";
+import { useLaunchParams } from "@telegram-apps/sdk-react";
 import dynamic from 'next/dynamic';
 
 // Créer un composant client-only pour le TaskBoard
@@ -16,7 +16,7 @@ function TaskBoard() {
   const [groupId, setGroupId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const launchParams = LaunchParams();
+  const launchParams = useLaunchParams();
 
   useEffect(() => {
     const initializeComponent = async () => {
